@@ -1,0 +1,11 @@
+<h1 class="header">My Articles</h1>
+
+<div class="container">
+  <% @articles.each do |article| %>
+    <h5 class="article-title"><%= link_to article.title, article_path(article)%>
+    <p class="article-content"> <%= article.content %> </p>
+    <p class="article-edits"> <%= link_to "Edit", edit_article_path(article) %> | <%= link_to "Remove", article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <% end %>
+  <%= link_to "Create new article", new_article_path %>
+</ul>
+</div>
